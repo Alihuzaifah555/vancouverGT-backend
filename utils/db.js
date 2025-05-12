@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = 'mongodb://127.0.0.1:27017/vancouvergt';
+const MONGODB_URI = 'mongodb+srv://syedalihuzaifahbukhari:XYlJ62HeYzcpGXg1@vancouvergt.4ygrve5.mongodb.net/';
 
 if (!MONGODB_URI) {
   throw new Error('Please define the MONGODB_URI');
@@ -34,3 +34,7 @@ async function dbConnect() {
 }
 
 export default dbConnect;
+
+
+// XYlJ62HeYzcpGXg1
+// syedalihuzaifahbukhari
