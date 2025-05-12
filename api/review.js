@@ -1,7 +1,6 @@
-import dbConnect from '../../utils/db.js';
-import Review from '../../models/Review.js';
+const dbConnect = require('../../utils/db');
+const Review = require('../../models/Review');
 module.exports = async function handler(req, res) {
-    console.log('Request received:');
     if (req.method === 'GET') {
       try {
         await dbConnect(); // connect to DB
