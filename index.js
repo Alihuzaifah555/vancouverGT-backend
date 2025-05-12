@@ -1,29 +1,26 @@
-// Import required modules
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
+
 const app = express();
+const routes = require('./routes/routes');
 
-// Define the port for the app
-const PORT = process.env.PORT || 3000;
+// Enable CORS
+app.use(cors());
 
-// MongoDB connection URI (Replace with your actual MongoDB URI)
-const mongoURI = 'mongodb://localhost:27017/mydatabase'; // Replace 'mydatabase' with your db name
+// Middleware
+app.use(express.json());
+
+// Routes
+app.use('/api', routes);
 
 // Connect to MongoDB
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connected to MongoDB!');
-  })
-  .catch(err => {
-    console.error('Failed to connect to MongoDB', err);
-  });
+mongoose.connect('mongodb://127.0.0.1:27017/vancouvergt')
+  .then(() => console.log('Connected to MongoDB!'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
-// Define a simple route
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
-
-// Start the server
+// Start server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
