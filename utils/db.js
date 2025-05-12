@@ -1,3 +1,4 @@
+// utils/db.js
 const mongoose = require('mongoose');
 
 const MONGODB_URI = 'mongodb+srv://syedalihuzaifahbukhari:XYlJ62HeYzcpGXg1@vancouvergt.4ygrve5.mongodb.net/vancouvergt';
@@ -26,6 +27,7 @@ async function dbConnect() {
       return mongoose;
     }).catch(err => {
       console.error('❌ MongoDB connection error:', err);
+      throw err;
     });
   }
 
@@ -33,7 +35,8 @@ async function dbConnect() {
   return cached.conn;
 }
 
-module.exports = dbConnect();
+module.exports = dbConnect;
+
 
 
 // XYlJ62HeYzcpGXg1
