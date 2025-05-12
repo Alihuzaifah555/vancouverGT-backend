@@ -33,7 +33,7 @@ async function dbConnect() {
   return cached.conn;
 }
 
-module.exports = dbConnect;
+module.exports = dbConnect();
 
 
 // XYlJ62HeYzcpGXg1
